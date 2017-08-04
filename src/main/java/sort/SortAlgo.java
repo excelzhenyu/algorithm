@@ -64,14 +64,23 @@ public class SortAlgo {
      */
     public void insertionSort(int[] arr){
         int len = arr.length;
-        for (int i=0;i<len;i++){
-
+        for (int i=1;i<len;i++){
+            int index=i-1;
+            int tmp=arr[i];
+            while(index>=0&&tmp<arr[index]){
+                arr[index+1]=arr[index];
+                index--;
+            }
+            arr[index+1] = tmp;
+        }
+        for (int i =0;i<len;i++){
+            System.out.println(arr[i]);
         }
     }
 
     public static void main(String[] args){
         SortAlgo sortAlgo = new SortAlgo();
         int[] arr = new int[]{12,13,11,15,14,16,19,18,17};
-        sortAlgo.selectionSort(arr);
+        sortAlgo.insertionSort(arr);
     }
 }
